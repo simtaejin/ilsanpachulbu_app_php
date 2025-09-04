@@ -11,7 +11,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // 헬퍼 파일을 포함
+        foreach (glob(app_path('Helpers').'/*.php') as $filename) {
+            require_once $filename;
+        }
     }
 
     /**
